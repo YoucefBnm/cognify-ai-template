@@ -11,7 +11,6 @@ import {
 } from "@/components/systaliko-ui/animated-menu";
 import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { nav_links, nav_socials } from "@/data/nav-links";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { AudioLinesIcon,  FileTextIcon, MicVocalIcon, UsersIcon } from "lucide-react";
@@ -20,6 +19,47 @@ import Link from "next/link";
 import React from "react";
 import GithubIcon from "../icons/github-icon";
 import { Separator } from "../ui/separator";
+const nav_links: { id: string; label: string; href: string }[] = [
+  {
+    id: "nav-link-2",
+    label: "Products",
+    href: "#Products",
+  },
+  {
+    id: "nav-link-1",
+    label: "Docs",
+    href: "#docs",
+  },
+  {
+    id: "nav-link-3",
+    label: "Solutions",
+    href: "#solutions",
+  },
+  {
+    id: "nav-link-4",
+    label: "Pricing",
+    href: "#pricing",
+  },
+];
+
+export const nav_socials: { id: string; label: string; href: string }[] = [
+  {
+    id: "nav-social-link-1",
+    label: "IG",
+    href: "https://instagram.com/cognify.ai",
+  },
+  {
+    id: "nav-nav-social-link-2",
+    label: "Linkedin",
+    href: "https://www.linkedin.com/company/cognify-ai/",
+  },
+  {
+    id: "nav-nav-social-link-3",
+    label: "X",
+    href: "https://www.x.com/cognify-ai/",
+  },
+];
+
 const variants = {
   open: {
     width: "70vw",
@@ -121,7 +161,7 @@ function HeaderDesktop() {
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
             inset-[0_0_auto] z-999 py-3
-            ${isScrolled ? "w-8/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
+            ${isScrolled ? "w-10/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
             `}>
            
                 <HeaderLogo />

@@ -51,7 +51,7 @@ export function Products() {
             
           />
           </Link>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/40 to-foreground">
+          <h2>
             Smart AI Modules That Adapt to Your Workflow
           </h2>
           <p className="text-muted-foreground max-w-[47ch]">

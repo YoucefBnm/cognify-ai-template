@@ -46,27 +46,25 @@ const faqs = [
 export function FAQ() {
   return (
     <section className="border-y">
-      <div className="p-16 grid grid-cols-1 grid-rows-auto md:grid-rows-1 md:grid-cols-2 items-start">
-        <div className="md:sticky md:top-8 p-8 md:p-20 space-y-6">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance">
-            No question left unanswered
+      <div className="p-16 space-y-8">
+        <div className="text-center w-4/5 mx-auto space-y-2">
+          <h2>
+            No question has no answer
           </h2>
-          <p className="text-muted-foreground max-w-[47ch]">
-            Cognify is a powerful AI-powered knowledge base that delivers
-            intelligent answers to your customers&apos; questions. It&apos;s
-            designed to help you streamline your support process, reduce ticket
+          <p className="text-muted-foreground m-auto text-balance max-w-[50ch]">
+            Designed to help you streamline your support process, reduce ticket
             volume, and improve customer satisfaction.
           </p>
         </div>
 
         <div className="flex flex-col justify-center">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map(({ id, question, answer }) => (
-              <AccordionItem className="border-none" key={id} value={id}>
-                <AccordionTrigger className="pt-4 pr-20 pb-6 pl-0">
+              <AccordionItem className="mx-auto md:max-w-3/5 border border-border/50 rounded px-6 bg-popover" key={id} value={id}>
+                <AccordionTrigger className="text-xl">
                   <h3>{question}</h3>
                 </AccordionTrigger>
-                <AccordionContent className="flex flex-col gap-4 text-balance pt-4 pr-12 pb-8 pl-0 ">
+                <AccordionContent className="text-lg">
                   <p>{answer}</p>
                 </AccordionContent>
               </AccordionItem>

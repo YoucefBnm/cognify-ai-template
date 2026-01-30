@@ -19,7 +19,6 @@ export function Hero() {
           <TextWavy
             className="text-sm tracking-wide"
             text="Turn Knowledge into Action"
-            colors={["rgba(0,0,0, 0.4)", "rgba(0,0,0,0.1)", "rgba(0,0,0, 0.4)"]}
           />
         </motion.div>
         <MotionConfig transition={{ duration: 0.4, ease: "easeOut" }}>
@@ -31,7 +30,7 @@ export function Hero() {
           </motion.h1>
           <motion.p
             variants={variants}
-            className="text-muted-foreground max-w-[47ch]"
+            className="text-muted-foreground text-balance md:line-clamp-2"
           >
             Cognify uses smart understanding and automation to answer customers
             faster, equip teams with context, and surface insights that grow

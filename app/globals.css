@@ -126,4 +126,7 @@
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;
     }
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/40 to-foreground;
+  }
 }
