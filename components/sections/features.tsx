@@ -4,9 +4,9 @@ import { Integrations } from "@/components/integrations";
 import { Link2Icon, ListFilterIcon, SparklesIcon, ZapIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
-import { TicketTriage } from "./feat";
 import { SmartSummaries } from "@/components/smart-summaries";
 import { cn } from "@/lib/utils";
+import { TicketTirage } from "../ticket-tirage";
 
 const features = [
   {
@@ -17,8 +17,8 @@ const features = [
     benefit: "Reduce average response time and lighten agent load.",
     icon: ZapIcon,
     component: AiScreen,
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
   {
     id: 1,
@@ -27,7 +27,7 @@ const features = [
       "Automatically categorize, prioritize, and route tickets so your team works on what matters most.",
     benefit: "Faster SLAs and lower operational cost.",
     icon: ListFilterIcon,
-    component: TicketTriage,
+    component: TicketTirage,
     color: "text-orange-500",
     bg: "bg-orange-500/10",
   },
@@ -39,8 +39,8 @@ const features = [
     benefit: "Faster decision making and better handoffs.",
     icon: SparklesIcon,
     component: SmartSummaries,
-    color: "text-purple-500",
-    bg: "bg-purple-500/10",
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
   },
   {
     id: 3,
@@ -120,9 +120,9 @@ export function Features() {
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
-                          className="text-sm font-medium text-blue-600 dark:text-blue-400 flex items-center gap-2"
+                          className="text-sm font-medium leading-relaxed"
                         >
-                          <span className="bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded text-xs">
+                          <span className="bg-primary text-primary-foreground px-2 py-1 rounded text-xs mr-1">
                             Benefit
                           </span>
                           {feature.benefit}

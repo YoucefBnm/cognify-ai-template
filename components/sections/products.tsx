@@ -6,6 +6,7 @@ import {
   ChartNetworkIcon,
   LightbulbIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 const products_cards = [
   {
@@ -43,12 +44,14 @@ export function Products() {
     <section className="border-y">
       <div className="grid grid-cols-1 grid-rows-auto md:grid-rows-1 md:grid-cols-2 items-start">
         <div className="md:sticky md:top-8 p-8 md:p-20 space-y-6">
+          <Link href="#">
           <TextWavy
             className="text-sm tracking-wide"
             text="Turn Knowledge into Action"
-            colors={["rgba(0,0,0, 0.4)", "rgba(0,0,0,0.1)", "rgba(0,0,0, 0.4)"]}
+            
           />
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance">
+          </Link>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/40 to-foreground">
             Smart AI Modules That Adapt to Your Workflow
           </h2>
           <p className="text-muted-foreground max-w-[47ch]">
@@ -60,12 +63,16 @@ export function Products() {
         </div>
 
         <div className="flex flex-wrap justify-start  md:*:odd:border-x [&>*:first-child]:border-b [&>*:nth-child(2)]:border-b">
-          {products_cards.map(({ id, label, icon, description }) => {
+          {products_cards.map(({ id, label, icon,description }) => {
             const Icon = icon;
             return (
-              <div className="p-8 space-y-4 basis-1/2" key={id}>
-                <Icon className="size-6 text-muted-foreground" />
-                <h3 className="text-xl font-medium">{label}</h3>
+              <div className="p-8 space-y-4 md:basis-1/2" key={id}>
+                <div className="flex gap-2 items-center justify-between">
+                  <h3 className="text-xl font-medium">{label}</h3>
+                  <div className="rounded p-2.5 bg-secondary text-secondary-foreground">
+                    <Icon className="size-6" />
+                  </div>
+                </div>
                 <p className="text-muted-foreground">{description}</p>
               </div>
             );
