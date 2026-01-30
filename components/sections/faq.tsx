@@ -46,7 +46,7 @@ const faqs = [
 export function FAQ() {
   return (
     <section className="border-y">
-      <div className="p-16 space-y-8">
+      <div className="px-8 md:px-16 py-16 space-y-8">
         <div className="text-center w-4/5 mx-auto space-y-2">
           <h2>
             No question has no answer

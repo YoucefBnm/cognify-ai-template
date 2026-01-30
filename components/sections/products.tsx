@@ -62,11 +62,14 @@ export function Products() {
           <Button>Start free trial</Button>
         </div>
 
-        <div className="flex flex-wrap justify-start  md:*:odd:border-x [&>*:first-child]:border-b [&>*:nth-child(2)]:border-b">
+        <div 
+          // className="flex flex-wrap justify-start  md:*:odd:border-x [&>*:first-child]:border-b [&>*:nth-child(2)]:border-b"
+          className="flex flex-wrap gap-px justify-start pl-px bg-border"
+        >
           {products_cards.map(({ id, label, icon,description }) => {
             const Icon = icon;
             return (
-              <div className="p-8 space-y-4 md:basis-1/2" key={id}>
+              <div className="bg-background p-8 space-y-4 md:min-w-[calc(50%-1px)] md:flex-1" key={id}>
                 <div className="flex gap-2 items-center justify-between">
                   <h3 className="text-xl font-medium">{label}</h3>
                   <div className="rounded p-2.5 bg-secondary text-secondary-foreground">
