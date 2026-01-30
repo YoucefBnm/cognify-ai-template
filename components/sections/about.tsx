@@ -24,7 +24,7 @@ const achievements = [
 ]
 export function About() {
   return (
-    <section className="px-20 py-16 space-y-8 border-y">
+    <section className="px-8 xl:px-20 pt-16 space-y-8 border-y">
       <div className="space-y-3">
         <h2>Make knowledge work faster</h2>
         <p className="text-balance text-xl leading-normal text-muted-foreground">              
@@ -37,12 +37,12 @@ export function About() {
 
       </div>
       
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap bg-border gap-px">
         {
           achievements.map(({ id, title, description }) => (
-            <div key={id} className="md:flex-1 p-4 space-y-3 md:not-first:border-x md:last:border-x-0 md:nth-[3]:border-l-0">
+            <div key={id} className="bg-background min-w-28 w-full md:flex-1 p-4 pb-8 space-y-3">
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-semibold tracking-tight">
+                <h1 className="text-2xl font-semibold tracking-tight">
                   {title}
                 </h1>
               </div>

@@ -84,7 +84,7 @@ export function Plans() {
             Save {savings}%
           </span>
         </div>
-        <div className="flex flex-wrap justify-start items-start gap-6 ">
+        <div className="flex flex-wrap justify-center items-start gap-6 ">
           {pricing_plans.map((plan) => {
             return (
               <PricingCard

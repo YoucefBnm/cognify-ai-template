@@ -107,7 +107,7 @@ function HeaderLogo() {
 }
 function DesktopHeaderNav () {
   return (
-    <NavigationMenu >
+    <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Products</NavigationMenuTrigger>
@@ -160,7 +160,7 @@ function HeaderDesktop() {
           <div className={`
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
-            inset-[0_0_auto] z-999 py-3
+            inset-[0_0_auto] py-3
             ${isScrolled ? "w-10/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
             `}>
            
