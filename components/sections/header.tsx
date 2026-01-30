@@ -10,11 +10,16 @@ import {
   AnimatedMenuList,
 } from "@/components/systaliko-ui/animated-menu";
 import { Button } from "@/components/ui/button";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { nav_links, nav_socials } from "@/data/nav-links";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
+import { AudioLinesIcon,  FileTextIcon, MicVocalIcon, UsersIcon } from "lucide-react";
 import { Variants } from "motion";
 import Link from "next/link";
 import React from "react";
+import GithubIcon from "../icons/github-icon";
+import { Separator } from "../ui/separator";
 const variants = {
   open: {
     width: "70vw",
@@ -55,11 +60,54 @@ function useIsScrolled() {
 
 function HeaderLogo() {
   return (
-    <Link className="flex items-center justify-center" href="/">
+    <Link className="text-primary flex items-center justify-center" href="/">
       <Logo />
     </Link>
   );
 }
+function DesktopHeaderNav () {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-2xs">
+              <li>
+                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-chart-2 text-white p-3.5 rounded "><AudioLinesIcon className="size-5" /></div><div><h3 className="font-medium">Voice Generation</h3><p className="text-muted-foreground text-sm">high fidelity audio from text for creators, media, and developers.</p></div></Link>} />
+                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-accent p-3.5 rounded text-accent-foreground"><MicVocalIcon className="size-5" /></div><div><h3 className="font-medium">Voice Automation</h3><p className="text-muted-foreground text-sm">real time voice conversations for customer service and business.</p></div></Link>} />
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-2xs">
+              <li>
+                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-primary text-primary-foreground p-3.5 rounded "><FileTextIcon className="size-5" /></div><div><h3 className="font-medium">Blog</h3><p className="text-muted-foreground text-sm">Latest articles and news from the team.</p></div></Link>} />
+                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-chart-1 p-3.5 rounded"><UsersIcon className="size-5" /></div><div><h3 className="font-medium">Community</h3><p className="text-muted-foreground text-sm">Discover our community of developers and creators.</p></div></Link>} />
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="/docs">Docs</Link>} />
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  )
+}
+function HeaderCta({className, ...props}: React.ComponentProps<"div">) {
+  return (
+    <div className={cn("flex gap-1", className)} {...props}>
+      <Button variant="ghost" size="icon"><GithubIcon /></Button>
+      <Button>Book a demo</Button>
+
+    </div>
+  )
+}
+
 function HeaderDesktop() {
   const { isScrolled, sentinelRef } = useIsScrolled();
   return (
@@ -68,44 +116,28 @@ function HeaderDesktop() {
         ref={sentinelRef}
         className="absolute top-0 h-px w-full bg-transparent"
       />
-      <header className="sticky backdrop-blur-lg bg-background/75 z-999 top-0 flex justify-center transition-[top] duration-300 *:duration-300">
-        <div className="w-full flex justify-center border-b border-b-border px-4">
-          <div className="w-full flex justify-center px-6 border-x border-x-border">
-            <div
-              className={`transition-[width]  ${
-                isScrolled ? " w-10/12" : "w-full"
-              }`}
-            >
-              <div className="flex h-14 items-center justify-between">
+      <header className="sticky top-0 left-0 w-full flex justify-center">
+          <div className={`
+            flex justify-between 
+             
+            transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
+            inset-[0_0_auto] z-999 py-3
+            ${isScrolled ? "w-8/12 px-3 translate-y-4 bg-background rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
+            `}>
+           
                 <HeaderLogo />
 
-                <ul className="flex justify-center items-center list-none">
-                  {nav_links.map(({ id, label, href }) => (
-                    <li
-                      key={id}
-                      className="cursor-pointer text-sm font-medium transition-colors duration-200 text-primary/60 hover:text-primary tracking-tight"
-                    >
-                      <a
-                        href={href}
-                        aria-label={`navigate to ${label}`}
-                        className="px-4 py-2"
-                      >
-                        {label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button variant={"outline"}>Get Started</Button>
+               <div className="flex items-center gap-4">
+                <DesktopHeaderNav />
+                <Separator orientation="vertical" />
+                <HeaderCta />
               </div>
-            </div>
           </div>
-        </div>
       </header>
     </>
+
   );
 }
-
 function HeaderMobile() {
   const { isScrolled, sentinelRef } = useIsScrolled();
 

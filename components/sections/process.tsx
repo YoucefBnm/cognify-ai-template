@@ -6,6 +6,7 @@ import {
   AiStatus,
   UserMessage,
 } from "@/components/ai-interface";
+import { AiScreen } from "@/components/ai-screen";
 import { BrowserHeader, CardMockupBody } from "@/components/card-mockup";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -46,37 +47,6 @@ function ProcessCard({
   );
 }
 
-function ProcessScreen({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <CardMockupBody className={cn("rounded-lg", className)} {...props}>
-      <BrowserHeader>
-        <div className="ml-4 h-6 w-64 bg-muted rounded-md text-[10px] flex items-center px-2 text-muted-foreground">
-          cognify.ai/agent/chat
-        </div>
-      </BrowserHeader>
-
-      <div className="relative z-2 flex-1 p-8 flex flex-col place-content-center gap-8 bg-stone-50/50 dark:bg-stone-950/50">
-        <UserMessage className="max-w-[80%] place-self-end">
-          How do I configure the SSO for my enterprise team?
-        </UserMessage>
-
-        <div className="flex items-start gap-3">
-          <AiAvatar imageUrl="/cognify.png" />
-
-          <div className="flex flex-col gap-4 max-w-10/12">
-            <AiStatus />
-            <AiSource />
-
-            <AiAnswer />
-          </div>
-        </div>
-      </div>
-    </CardMockupBody>
-  );
-}
 function ProcessDesktop() {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -103,7 +73,7 @@ function ProcessDesktop() {
             className="h-full mx-auto origin-top px-8 place-content-center"
             style={{ transform: screenTransform }}
           >
-            <ProcessScreen className="w-3/5 max-h-full aspect-video min-h-full" />
+            <AiScreen className="w-3/5 max-h-full aspect-video min-h-full" />
           </motion.div>
         </div>
         <motion.div
@@ -147,7 +117,7 @@ function ProcessMobile() {
   return (
     <section className="py-12 px-8">
       <div className="flex flex-col justify-center items-center gap-6">
-        <ProcessScreen className="min-w-2xs max-w-xl " />
+        <AiScreen className="min-w-2xs max-w-xl " />
         <div className="flex flex-wrap gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
