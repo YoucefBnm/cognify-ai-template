@@ -40,8 +40,8 @@ export const TextWavy = ({
         delay: delayTime + i * 0.05,
         duration: 0.7,
         ease: 'easeIn',
-        repeat:  Infinity, // Repeat the animation infinitely
-        repeatDelay: 2, // Delay of 5 seconds between repeats
+        repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely
+        repeatDelay: 5, // Delay of 5 seconds between repeats
       },
     }),
   } as Variants;
