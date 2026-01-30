@@ -70,7 +70,7 @@ export function Integrations() {
                 <div
                   className={`w-10 h-10 rounded-lg ${app.color} flex items-center justify-center text-white shadow-sm`}
                 >
-                  <app.icon className="w-5 h-5" />
+                  <app.icon className="size-5" />
                 </div>
                 <div>
                   <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100">

@@ -1,38 +1,38 @@
 import { ArrowRightIcon, ClockIcon } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Avatar, AvatarFallback } from "./ui/avatar";
+const tickets = [
+  {
+    id: "T-1024",
+    title: "Cannot access production database",
+    priority: "high",
+    category: "DevOps",
+    assignee: "Sarah C.",
+    time: "2m ago",
+    status: "Routing...",
+  },
+  {
+    id: "T-1023",
+    title: "Update billing information for Q4",
+    priority: "low",
+    category: "Billing",
+    assignee: "Finance Bot",
+    time: "15m ago",
+    status: "Routed",
+  },
+  {
+    id: "T-1022",
+    title: "Feature request: Dark mode export",
+    priority: "medium",
+    category: "Product",
+    assignee: "Product Team",
+    time: "1h ago",
+    status: "Routed",
+  },
+];
 
 export function TicketTirage() {
-  const tickets = [
-    {
-      id: "T-1024",
-      title: "Cannot access production database",
-      priority: "high",
-      category: "DevOps",
-      assignee: "Sarah C.",
-      time: "2m ago",
-      status: "Routing...",
-    },
-    {
-      id: "T-1023",
-      title: "Update billing information for Q4",
-      priority: "low",
-      category: "Billing",
-      assignee: "Finance Bot",
-      time: "15m ago",
-      status: "Routed",
-    },
-    {
-      id: "T-1022",
-      title: "Feature request: Dark mode export",
-      priority: "medium",
-      category: "Product",
-      assignee: "Product Team",
-      time: "1h ago",
-      status: "Routed",
-    },
-  ];
-
+  
   return (
     <div className="size-full flex flex-col  rounded-xl overflow-hidden border shadow-sm">
       <div className="p-4 border-b bg-muted/10 flex justify-between items-center">

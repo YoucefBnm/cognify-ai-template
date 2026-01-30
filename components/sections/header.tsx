@@ -67,7 +67,7 @@ function HeaderLogo() {
 }
 function DesktopHeaderNav () {
   return (
-    <NavigationMenu className="z-9999">
+    <NavigationMenu >
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Products</NavigationMenuTrigger>
@@ -116,7 +116,7 @@ function HeaderDesktop() {
         ref={sentinelRef}
         className="absolute top-0 h-px w-full bg-transparent"
       />
-      <header className="sticky top-0 left-0 w-full flex justify-center">
+      <header className="sticky z-999 top-0 left-0 w-full flex justify-center">
           <div className={`
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
