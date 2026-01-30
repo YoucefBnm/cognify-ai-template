@@ -67,10 +67,10 @@ function HeaderLogo() {
 }
 function DesktopHeaderNav () {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="z-9999">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent">Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-2xs">
               <li>
@@ -81,7 +81,7 @@ function DesktopHeaderNav () {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent">Resources</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-2xs">
               <li>
@@ -92,7 +92,7 @@ function DesktopHeaderNav () {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="/docs">Docs</Link>} />
+          <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-transparent`} render={<Link href="/docs">Docs</Link>} />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
@@ -118,11 +118,10 @@ function HeaderDesktop() {
       />
       <header className="sticky top-0 left-0 w-full flex justify-center">
           <div className={`
-            flex justify-between 
-             
+            flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
             inset-[0_0_auto] z-999 py-3
-            ${isScrolled ? "w-8/12 px-3 translate-y-4 bg-background rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
+            ${isScrolled ? "w-8/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
             `}>
            
                 <HeaderLogo />
