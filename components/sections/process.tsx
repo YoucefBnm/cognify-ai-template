@@ -1,13 +1,6 @@
 "use client";
-import {
-  AiAnswer,
-  AiAvatar,
-  AiSource,
-  AiStatus,
-  UserMessage,
-} from "@/components/ai-interface";
+
 import { AiScreen } from "@/components/ai-screen";
-import { BrowserHeader, CardMockupBody } from "@/components/card-mockup";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -41,7 +34,7 @@ function ProcessCard({
         <Icon className="size-5" />
         <h2 className="text-xl font-semibold">{title}</h2>
       </div>
-      <p className="text-muted-foreground">{description}</p>
+      <p className="text-muted-foreground text-balance">{description}</p>
       {children}
     </div>
   );
@@ -105,7 +98,7 @@ function ProcessDesktop() {
             title="Automate"
             description="Route tickets, suggest replies, and serve customers through chat, email, or internal tools."
           >
-            <Button variant={"secondary"}>Setup your workflows</Button>
+            <Button>Setup your workflows</Button>
           </ProcessCard>
         </motion.div>
       </div>
@@ -118,7 +111,7 @@ function ProcessMobile() {
     <section className="py-12 px-8">
       <div className="flex flex-col justify-center items-center gap-6">
         <AiScreen className="min-w-2xs max-w-xl " />
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <LogInIcon className="size-5 text-muted-foreground" />{" "}
@@ -147,7 +140,7 @@ function ProcessMobile() {
               Route tickets, suggest replies, and serve customers through chat,
               email, or internal tools.
             </p>
-            <Button variant={"secondary"} size={"sm"}>
+            <Button>
               Setup your workflows
             </Button>
           </div>
