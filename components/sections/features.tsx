@@ -62,7 +62,7 @@ export function Features() {
     <section className="py-16">
       <div className="container space-y-12 mx-auto px-4 max-w-7xl">
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/40 to-foreground">
+          <h2>
             Everything you need to build a smarter support system
           </h2>
           <p className="text-muted-foreground text-balance">

@@ -56,10 +56,10 @@ function ProcessDesktop() {
   const screenTransform = useMotionTemplate`scale(${screenScale}) translateX(${screenX})`;
   const text1Opacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0, 1, 0]);
   const text2Opacity = useTransform(scrollYProgress, [0.5, 0.9, 1], [0, 1, 0]);
-  const text3Opacity = useTransform(scrollYProgress, [0.8, 1], [0, 1]);
+  const text3Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
 
   return (
-    <section ref={containerRef} className="relative h-[350vh]">
+    <section ref={containerRef} className="relative h-[300vh]">
       <div className="sticky top-0 left-0 h-screen w-full">
         <div className="overflow-hidden py-16 h-full">
           <motion.div

@@ -10,6 +10,7 @@ import {
 } from "@/components/systaliko-ui/pricing";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Separator } from "../ui/separator";
 
 interface PricingPlan {
   id: string;
@@ -65,7 +66,7 @@ export function Plans() {
   return (
     <section className="py-12 px-8 space-y-10">
       <div className="w-4/5 mx-auto text-center space-y-3">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium tracking-tighter text-balance">
+        <h2>
           Flexible Plans for Teams of Any Size
         </h2>
         <p className="text-muted-foreground mx-auto max-w-[47ch]">
@@ -79,23 +80,16 @@ export function Plans() {
 
           <PricingIntervalSwitch />
           <span className="text-muted-foreground">Yearly</span>
-          <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-600 bg-emerald-50 dark:bg-emerald-900/30 px-2 py-0.5 rounded-full">
+          <span className="text-[10px] font-bold uppercase tracking-wide text-green-600 bg-green-50 dark:bg-green-900/30 px-2 py-0.5 rounded-full">
             Save {savings}%
           </span>
         </div>
-        <div className="flex flex-wrap justify-center gap-6 ">
+        <div className="flex flex-wrap justify-start items-start gap-6 ">
           {pricing_plans.map((plan) => {
             return (
               <PricingCard
                 key={plan.id}
-                className={`
-                  md:flex-1 flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]
-                  ${
-                    plan.featured
-                      ? "bg-primary shadow-xl text-primary-foreground"
-                      : "bg-card shadow"
-                  }
-                `}
+                className="md:flex-1 flex flex-col p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] shadow-[0_0_0_1px_rgba(0,0,0,0.05)]"
               >
                 <PricingPackage className="flex-col gap-4 items-start">
                   <div className="flex items-center gap-2">
@@ -119,17 +113,17 @@ export function Plans() {
                     <div className="font-semibold">Custom</div>
                   )}
                 </PricingPackage>
-
+                <Separator />
                 <ul className="flex flex-col space-y-3 mb-8">
                   {plan.features.map((feature) => (
-                    <PricingFeature className="text-sm " key={feature}>
+                    <PricingFeature key={feature}>
                       {feature}
                     </PricingFeature>
                   ))}
                 </ul>
 
                 <Button
-                  variant={plan.featured ? "secondary" : "outline"}
+                  variant={plan.featured ? "default" : "secondary"}
                   className="rounded-full"
                   size="lg"
                 >
