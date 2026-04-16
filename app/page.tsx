@@ -9,15 +9,10 @@ import { Process } from "@/components/sections/process";
 import { Products } from "@/components/sections/products";
 
 export default function Page() {
-return <>
-<Header />
-<Hero />
-<Process />
-<Products />
-<Features />
-<About />
-<Plans />
-<FAQ />
-<Footer />
-</>
+  return (
+    <>
+      {/* <Header /> */}
+      <Hero />
+    </>
+  );
 }

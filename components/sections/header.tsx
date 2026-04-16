@@ -10,10 +10,23 @@ import {
   AnimatedMenuList,
 } from "@/components/systaliko-ui/animated-menu";
 import { Button } from "@/components/ui/button";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
-import { AudioLinesIcon,  FileTextIcon, MicVocalIcon, UsersIcon } from "lucide-react";
+import {
+  AudioLinesIcon,
+  FileTextIcon,
+  MicVocalIcon,
+  UsersIcon,
+} from "lucide-react";
 import { Variants } from "motion";
 import Link from "next/link";
 import React from "react";
@@ -83,7 +96,7 @@ function useIsScrolled() {
         // If the sentinel (top pixel) is NOT intersecting, we have scrolled down
         setIsScrolled(!entry.isIntersecting);
       },
-      { root: null, threshold: 1.0 }
+      { root: null, threshold: 1.0 },
     );
 
     if (sentinelRef.current) {
@@ -105,47 +118,113 @@ function HeaderLogo() {
     </Link>
   );
 }
-function DesktopHeaderNav () {
+function DesktopHeaderNav() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent">Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent">
+            Products
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-2xs">
               <li>
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-chart-2 text-white p-3.5 rounded "><AudioLinesIcon className="size-5" /></div><div><h3 className="font-medium">Voice Generation</h3><p className="text-muted-foreground text-sm">high fidelity audio from text for creators, media, and developers.</p></div></Link>} />
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-accent p-3.5 rounded text-accent-foreground"><MicVocalIcon className="size-5" /></div><div><h3 className="font-medium">Voice Automation</h3><p className="text-muted-foreground text-sm">real time voice conversations for customer service and business.</p></div></Link>} />
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <div className="bg-chart-2 text-white p-3.5 rounded ">
+                        <AudioLinesIcon className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">Voice Generation</h3>
+                        <p className="text-muted-foreground text-sm">
+                          high fidelity audio from text for creators, media, and
+                          developers.
+                        </p>
+                      </div>
+                    </Link>
+                  }
+                />
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <div className="bg-accent p-3.5 rounded text-accent-foreground">
+                        <MicVocalIcon className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">Voice Automation</h3>
+                        <p className="text-muted-foreground text-sm">
+                          real time voice conversations for customer service and
+                          business.
+                        </p>
+                      </div>
+                    </Link>
+                  }
+                />
               </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent">Resources</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="bg-transparent">
+            Resources
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-2xs">
               <li>
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-primary text-primary-foreground p-3.5 rounded "><FileTextIcon className="size-5" /></div><div><h3 className="font-medium">Blog</h3><p className="text-muted-foreground text-sm">Latest articles and news from the team.</p></div></Link>} />
-                <NavigationMenuLink render={<Link href="#" className="flex-row items-center gap-2"><div className="bg-chart-1 p-3.5 rounded"><UsersIcon className="size-5" /></div><div><h3 className="font-medium">Community</h3><p className="text-muted-foreground text-sm">Discover our community of developers and creators.</p></div></Link>} />
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <div className="bg-primary text-primary-foreground p-3.5 rounded ">
+                        <FileTextIcon className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">Blog</h3>
+                        <p className="text-muted-foreground text-sm">
+                          Latest articles and news from the team.
+                        </p>
+                      </div>
+                    </Link>
+                  }
+                />
+                <NavigationMenuLink
+                  render={
+                    <Link href="#" className="flex-row items-center gap-2">
+                      <div className="bg-chart-1 p-3.5 rounded">
+                        <UsersIcon className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium">Community</h3>
+                        <p className="text-muted-foreground text-sm">
+                          Discover our community of developers and creators.
+                        </p>
+                      </div>
+                    </Link>
+                  }
+                />
               </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bg-transparent`} render={<Link href="/docs">Docs</Link>} />
+          <NavigationMenuLink
+            className={`${navigationMenuTriggerStyle()} bg-transparent`}
+            render={<Link href="/docs">Docs</Link>}
+          />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
-function HeaderCta({className, ...props}: React.ComponentProps<"div">) {
+function HeaderCta({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div className={cn("flex gap-1", className)} {...props}>
-      <Button variant="ghost" size="icon"><GithubIcon /></Button>
+      <Button variant="ghost" size="icon">
+        <GithubIcon />
+      </Button>
       <Button>Book a demo</Button>
-
     </div>
-  )
+  );
 }
 
 function HeaderDesktop() {
@@ -156,25 +235,25 @@ function HeaderDesktop() {
         ref={sentinelRef}
         className="absolute top-0 h-px w-full bg-transparent"
       />
-      <header className="sticky z-999 top-0 left-0 w-full flex justify-center">
-          <div className={`
+      <header className="fixed z-999 top-0 left-0 w-full flex justify-center">
+        <div
+          className={`
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
             inset-[0_0_auto] py-3
             ${isScrolled ? "w-10/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
-            `}>
-           
-                <HeaderLogo />
+            `}
+        >
+          <HeaderLogo />
 
-               <div className="flex items-center gap-4">
-                <DesktopHeaderNav />
-                <Separator orientation="vertical" />
-                <HeaderCta />
-              </div>
+          <div className="flex items-center gap-4">
+            <DesktopHeaderNav />
+            <Separator orientation="vertical" />
+            <HeaderCta />
           </div>
+        </div>
       </header>
     </>
-
   );
 }
 function HeaderMobile() {
@@ -187,7 +266,7 @@ function HeaderMobile() {
         className="absolute top-0 h-px w-full bg-transparent"
       />
       <header
-        className={`sticky w-full px-4 z-999 flex items-center gap-4 justify-between bg-background h-14 transition-transform duration-300 ${
+        className={`fixed w-full px-4 z-999 flex items-center gap-4 justify-between bg-background h-14 transition-transform duration-300 ${
           isScrolled ? "-translate-y-full" : "translate-y-0"
         }`}
       >
