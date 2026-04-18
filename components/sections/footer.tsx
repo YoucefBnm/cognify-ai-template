@@ -2,11 +2,15 @@ import { about_text } from "@/constants";
 import { Logo } from "../logo";
 import { AppleStoreIcon } from "../icons/apple-store-icon";
 import { GooglePlayIcon } from "../icons/google-play-icon";
+import { FAQ } from "./faq";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
-      <div className="grid grid-cols-1 md:grid-cols-2 justify-evenly items-center gap-8 p-12 ">
+    <footer>
+      <div className="relative min-h-screen bg-secondary text-secondary-foreground z-2">
+        <FAQ />
+      </div>
+      <div className="sticky z-0 bottom-0 left-0 w-full h-fit grid grid-cols-1 md:grid-cols-2 justify-evenly items-center gap-8 p-12 ">
         <FooterLogo />
 
         <FooterSocials />

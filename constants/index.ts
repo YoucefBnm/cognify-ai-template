@@ -208,4 +208,42 @@ export const features = [
 ];
 
 export const about_text =
-  "Cognify builds AI tools that make knowledge work faster, safer, and more helpful. We believe teams should spend time on impact — not on searching for answers. Our mission: turn scattered documentation and conversations into usable, trusted intelligence.";
+  "Cognify builds AI tools that make knowledge work faster, safer, and more helpful. We believe teams should spend time on impact, not on searching for answers. Our mission: turn scattered documentation and conversations into usable, trusted intelligence.";
+
+export const faqs = [
+  {
+    id: "faq-1",
+    question: "How long does setup take?",
+    answer:
+      "Most customers are live within 2–7 days depending on integrations and data volume.",
+  },
+  {
+    id: "faq-5",
+    question: "How do I get started?",
+    answer:
+      "Sign up for a free trial and start building your knowledge base today.",
+  },
+  {
+    id: "faq-2",
+    question: "Is my data secure?",
+    answer:
+      "Absolutly. We offer encryption at rest and in transit, role-based access control, and audit logs. Enterprise plans include VPC/Bring Your Own Key options.",
+  },
+  {
+    id: "faq-3",
+    question: "Do you fine-tune models on our data?",
+    answer:
+      "You control whether private fine-tuning or instruction-tuning is enabled. Defaults prioritize privacy and ephemeral contexts.",
+  },
+  {
+    id: "faq-4",
+    question: "What integrations do you support?",
+    answer:
+      "Zendesk, Intercom, Salesforce, Slack, Google Drive, Confluence, and custom webhooks.",
+  },
+  {
+    id: "faq-6",
+    question: "How do I contact you?",
+    answer: "Reach out to us at support@cognify.com.",
+  },
+];

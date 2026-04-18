@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "relative bg-primary text-primary-foreground [a]:hover:bg-primary/80 shadow-[inset_0_-6px_20px_rgba(0,0,0,0.32),0_11px_12px_rgba(0,0,0,0.12),0_3px_3px_rgba(0,0,0,0.12),0_1px_1px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.08)] hover:shadow-[inset_0_-6px_20px_rgba(0,0,0,0.7),0_11px_12px_rgba(0,0,0,0.16),0_3px_3px_rgba(0,0,0,0.16),0_1px_1px_rgba(0,0,0,0.16),0_0_0_1px_rgba(0,0,0,0.08)] after:absolute after:inset-px after:border after:border-border/10 after:rounded-[inherit] after:pointer-events-none",
+          "relative bg-primary text-primary-foreground [a]:hover:bg-primary/80 shadow-[inset_0_-6px_20px_rgba(0,0,0,0.32),0_11px_12px_rgba(0,0,0,0.12),0_3px_3px_rgba(0,0,0,0.12),0_1px_1px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.08)] hover:shadow-[inset_0_-6px_20px_rgba(0,0,0,0.7),0_11px_12px_rgba(0,0,0,0.16),0_3px_3px_rgba(0,0,0,0.16),0_1px_1px_rgba(0,0,0,0.16),0_0_0_1px_rgba(0,0,0,0.08)] after:absolute after:inset-px after:border after:border-border/15 after:rounded-[inherit] after:pointer-events-none",
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
