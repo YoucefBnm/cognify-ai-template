@@ -1,86 +1,52 @@
 import { TextWavy } from "@/components/systaliko-ui/text-wavy";
 import { Button } from "@/components/ui/button";
-import {
-  BotMessageSquareIcon,
-  BrainCircuitIcon,
-  ChartNetworkIcon,
-  LightbulbIcon,
-} from "lucide-react";
-import Link from "next/link";
-
-const products_cards = [
-  {
-    id: "product-chat",
-    label: "Coginfy Chat",
-    icon: BotMessageSquareIcon,
-    description:
-      "Conversational assistant that answers customer queries in real-time using your verified knowledge base. It reduces repetitive ticket volume and provides fast, human-like responses that remain consistent with your policies.",
-  },
-  {
-    id: "product-assistant",
-    label: "Coginfy Assist",
-    icon: BrainCircuitIcon,
-    description:
-      "AI companion for support and sales agents. It offers real‑time suggested replies, contextual lookup, entity highlighting, and automated ticket summarization to accelerate resolution times and reduce cognitive load.",
-  },
-  {
-    id: "product-insights",
-    label: "Coginfy Insights",
-    icon: LightbulbIcon,
-    description:
-      "Intelligence analytics dashboard. It reveals trends, patterns, content gaps, model accuracy, most‑asked topics, and support efficiency metrics — helping you continuously improve your knowledge assets.",
-  },
-  {
-    id: "product-connect",
-    label: "Coginfy Connect",
-    icon: ChartNetworkIcon,
-    description:
-      "Integrations hub that makes setup seamless. Connects with support centers, email pipelines, CRMs, internal drives, and custom endpoints so data flows securely and automatically.",
-  },
-];
+import { ChevronRightIcon } from "lucide-react";
+import { products_cards } from "@/constants";
 
 export function Products() {
   return (
-    <section className="border-y">
-      <div className="grid grid-cols-1 grid-rows-auto md:grid-rows-1 md:grid-cols-2 items-start">
-        <div className="md:sticky md:top-8 p-8 md:p-20 space-y-6">
-          <Link href="#">
+    <section className="bg-foreground text-background py-12 px-8 space-y-8">
+      <div className="flex items-end gap-8 justify-center flex-wrap max-w-5xl mx-auto">
+        <div className="space-y-4 flex-1">
           <TextWavy
-            className="text-sm tracking-wide"
-            text="Turn Knowledge into Action"
-            
+            fontWeights={[500, 700, 500]}
+            colors={["var(--accent)", "var(--primary)", "var(--accent)"]}
+            text="&#9642; Turn Knowledge into Action"
+            className="tracking-wide"
           />
-          </Link>
-          <h2>
+          <h2 className="text-2xl font-medium text-balance">
             Smart AI Modules That Adapt to Your Workflow
           </h2>
-          <p className="text-muted-foreground max-w-[47ch]">
-            Cognify is built as a modular system, activate only what you need,
-            expand when you&apos;re ready. These components plug into your stack
-            and deliver immediate value.
-          </p>
-          <Button>Start free trial</Button>
+          <Button variant={"secondary"}>Get started</Button>
         </div>
 
-        <div 
-          // className="flex flex-wrap justify-start  md:*:odd:border-x [&>*:first-child]:border-b [&>*:nth-child(2)]:border-b"
-          className="flex flex-wrap gap-px justify-start pl-px bg-border"
-        >
-          {products_cards.map(({ id, label, icon,description }) => {
-            const Icon = icon;
-            return (
-              <div className="bg-background p-8 space-y-4 md:min-w-[calc(50%-1px)] md:flex-1" key={id}>
-                <div className="flex gap-2 items-center justify-between">
-                  <h3 className="text-xl font-medium">{label}</h3>
-                  <div className="rounded p-2.5 bg-secondary text-secondary-foreground">
-                    <Icon className="size-6" />
-                  </div>
-                </div>
-                <p className="text-muted-foreground">{description}</p>
-              </div>
-            );
-          })}
-        </div>
+        <p className="flex-1 min-w-[35ch] text-balance text-muted text-sm">
+          Cognify is built as a modular system, activate only what you need,
+          expand when you're ready. These components plug into your stack and
+          deliver immediate value.
+        </p>
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-2">
+        {products_cards.map((product) => (
+          <div
+            key={product.id}
+            className="group flex-1 max-w-3xs min-w-52 p-6 border border-border/10 transition-colors duration-200 hover:border-primary/20 space-y-4"
+          >
+            <div className="size-10 bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-primary/40 transition-colors duration-200">
+              <product.icon className="size-5" />
+            </div>
+            <h3>{product.label}</h3>
+
+            <p className="text-muted-foreground text-sm line-clamp-6">
+              {product.description}
+            </p>
+
+            <Button className={"text-white"} variant={"link"}>
+              Learn more <ChevronRightIcon />
+            </Button>
+          </div>
+        ))}
       </div>
     </section>
   );

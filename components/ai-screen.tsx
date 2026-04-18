@@ -20,7 +20,7 @@ export function AiScreen({
         </div>
       </BrowserHeader>
 
-      <div className="relative z-2 flex-1 p-8 flex flex-col place-content-center gap-8 bg-stone-50/50 dark:bg-stone-950/50">
+      <div className="relative z-2 flex-1 p-8 flex flex-col place-content-center gap-8 ">
         <UserMessage className="max-w-[80%] place-self-end">
           How do I configure the SSO for my enterprise team?
         </UserMessage>

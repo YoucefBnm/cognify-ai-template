@@ -1,75 +1,21 @@
 "use client";
-import { AiScreen } from "@/components/ai-screen";
-import { Integrations } from "@/components/integrations";
-import { Link2Icon, ListFilterIcon, SparklesIcon, ZapIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
-import { SmartSummaries } from "@/components/smart-summaries";
 import { cn } from "@/lib/utils";
-import { TicketTirage } from "../ticket-tirage";
-
-const features = [
-  {
-    id: 0,
-    title: "Instant Answers from Your Docs",
-    description:
-      "Connect existing knowledge (docs, help centers, product specs) and let Cognify return accurate, context-aware answers to customers and agents.",
-    benefit: "Reduce average response time and lighten agent load.",
-    icon: ZapIcon,
-    component: AiScreen,
-    color: "text-primary",
-    bg: "bg-primary/10",
-  },
-  {
-    id: 1,
-    title: "AI-Powered Ticket Triage",
-    description:
-      "Automatically categorize, prioritize, and route tickets so your team works on what matters most.",
-    benefit: "Faster SLAs and lower operational cost.",
-    icon: ListFilterIcon,
-    component: TicketTirage,
-    color: "text-orange-500",
-    bg: "bg-orange-500/10",
-  },
-  {
-    id: 2,
-    title: "Smart Summaries & Insights",
-    description:
-      "Turn long conversations and documents into clear summaries and action items.",
-    benefit: "Faster decision making and better handoffs.",
-    icon: SparklesIcon,
-    component: SmartSummaries,
-    color: "text-indigo-500",
-    bg: "bg-indigo-500/10",
-  },
-  {
-    id: 3,
-    title: "Seamless Integrations",
-    description:
-      "Out-of-the-box connectors for Zendesk, Intercom, Salesforce, Slack, Google Drive, and more.",
-    benefit: "Keep workflows — just add AI.",
-    icon: Link2Icon,
-    component: Integrations,
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/10",
-  },
-];
+import { Badge } from "../ui/badge";
+import { SectionHeader } from "../section-header";
+import { features } from "@/constants";
 
 export function Features() {
   const [activeFeature, setActiveFeature] = React.useState<number>(0);
 
   return (
-    <section className="py-16">
-      <div className="container space-y-12 mx-auto px-4 max-w-7xl">
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2>
-            Everything you need to build a smarter support system
-          </h2>
-          <p className="text-muted-foreground text-balance">
-            Cognify transforms your customer experience with autonomous agents
-            that understand your product as well as you do.
-          </p>
-        </div>
+    <section className="py-16 overflow-hidden">
+      <div className="max-w-6xl px-2 mx-auto  space-y-12 ">
+        <SectionHeader
+          title="Everything you need to build a smarter support system"
+          paragraph="Cognify transforms your customer experience with autonomous agents that understand your product as well as you do."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5 flex flex-col gap-4">
@@ -83,14 +29,14 @@ export function Features() {
                     "group relative p-6 rounded-2xl cursor-pointer transition-all duration-300 border-2 text-left",
                     activeFeature === index
                       ? "bg-card border shadow-lg scale-[1.02]"
-                      : "bg-transparent border-transparent hover:bg-accent hover:scale-[1.01]"
+                      : "bg-transparent border-transparent hover:bg-accent hover:scale-[1.01]",
                   )}
                 >
                   <div className="flex items-start gap-4">
                     <div
                       className={cn(
                         "p-2 rounded-lg shrink-0 transition-colors",
-                        activeFeature === index ? feature.bg : "bg-muted "
+                        activeFeature === index ? feature.bg : "bg-muted ",
                       )}
                     >
                       <Icon
@@ -98,7 +44,7 @@ export function Features() {
                           "size-6",
                           activeFeature === index
                             ? feature.color
-                            : "text-muted-foreground"
+                            : "text-muted-foreground",
                         )}
                       />
                     </div>
@@ -108,7 +54,7 @@ export function Features() {
                           "font-semibold text-lg mb-2",
                           activeFeature === index
                             ? "text-slate-900 dark:text-white"
-                            : "text-slate-600 dark:text-slate-400"
+                            : "text-slate-600 dark:text-slate-400",
                         )}
                       >
                         {feature.title}
@@ -122,9 +68,9 @@ export function Features() {
                           animate={{ opacity: 1, height: "auto" }}
                           className="text-sm font-medium leading-relaxed"
                         >
-                          <span className="bg-primary text-primary-foreground px-2 py-1 rounded text-xs mr-1">
+                          <Badge className="bdow-sm shadow-black/15 text-[10px] h-5  mr-1">
                             Benefit
-                          </span>
+                          </Badge>
                           {feature.benefit}
                         </motion.div>
                       )}
@@ -153,7 +99,12 @@ export function Features() {
                     {features.map((feature) => {
                       if (feature.id === activeFeature) {
                         const Component = feature.component;
-                        return <Component key={feature.id} />;
+                        return (
+                          <Component
+                            className="rounded-[15px]"
+                            key={feature.id}
+                          />
+                        );
                       }
                       return null;
                     })}

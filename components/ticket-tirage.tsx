@@ -1,6 +1,7 @@
 import { ArrowRightIcon, ClockIcon } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Avatar, AvatarFallback } from "./ui/avatar";
+import { cn } from "@/lib/utils";
 const tickets = [
   {
     id: "T-1024",
@@ -31,10 +32,17 @@ const tickets = [
   },
 ];
 
-export function TicketTirage() {
-  
+export function TicketTirage({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
-    <div className="size-full flex flex-col  rounded-xl overflow-hidden border shadow-sm">
+    <div
+      className={cn(
+        "flex flex-col rounded-xl overflow-hidden border shadow-sm",
+        className,
+      )}
+    >
       <div className="p-4 border-b bg-muted/10 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
@@ -58,8 +66,8 @@ export function TicketTirage() {
                   ticket.priority === "high"
                     ? "bg-red-500"
                     : ticket.priority === "medium"
-                    ? "bg-yellow-500"
-                    : "bg-blue-500"
+                      ? "bg-yellow-500"
+                      : "bg-blue-500"
                 }`}
               />
               <div>

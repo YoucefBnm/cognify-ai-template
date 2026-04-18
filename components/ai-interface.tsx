@@ -11,7 +11,7 @@ export function UserMessage({
     <div
       className={cn(
         "flex bg-secondary text-secondary-foreground px-4 py-2 rounded-2xl rounded-tr-none text-sm shadow-sm",
-        className
+        className,
       )}
       {...props}
     />
@@ -23,7 +23,7 @@ export function AiAvatar({
   className,
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & { imageUrl?: string }) {
+}: React.ComponentProps<typeof Avatar> & { imageUrl?: string }) {
   return (
     <Avatar className={cn("size-8 border bg-background", className)} {...props}>
       <AvatarImage src={imageUrl} />
@@ -36,7 +36,7 @@ export function AiAvatar({
 export function AiStatus() {
   return (
     <div className="flex flex-col gap-2 ">
-      <div className="flex items-center gap-2 text-xs text-secondary-foreground mb-1">
+      <div className="flex items-center gap-2 text-xs  mb-1">
         <SparklesIcon className="size-3 text-primary animate-pulse" />
         <span>Scanning Knowledge Base...</span>
       </div>
@@ -72,7 +72,7 @@ export function AiAnswer() {
           <span className="text-xs text-muted-foreground">Confidence: 98%</span>
           <Badge
             variant="outline"
-            className="text-[10px] h-5 text-green-600 border-green-200 bg-green-50"
+            className="shadow-sm shadow-black/15 text-[10px] h-5 text-green-600 border-green-200 bg-green-50"
           >
             Verified Source
           </Badge>

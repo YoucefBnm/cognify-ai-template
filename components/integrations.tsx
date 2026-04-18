@@ -7,55 +7,65 @@ import {
 } from "lucide-react";
 import { Switch } from "./ui/switch";
 import Link from "next/link";
+import React from "react";
+import { cn } from "@/lib/utils";
+const integrations = [
+  {
+    name: "Slack",
+    icon: HashIcon,
+    color: "bg-emerald-500",
+    active: true,
+    desc: "Channel alerts & replies",
+  },
+  {
+    name: "Salesforce",
+    icon: CloudIcon,
+    color: "bg-blue-500",
+    active: true,
+    desc: "CRM data sync",
+  },
+  {
+    name: "Google Drive",
+    icon: HardDriveIcon,
+    color: "bg-yellow-500",
+    active: true,
+    desc: "Knowledge base source",
+  },
+  {
+    name: "Zendesk",
+    icon: MessageSquareIcon,
+    color: "bg-green-600",
+    active: false,
+    desc: "Ticket management",
+  },
+  {
+    name: "Intercom",
+    icon: MessageSquareIcon,
+    color: "bg-indigo-500",
+    active: false,
+    desc: "Customer chat sync",
+  },
+  {
+    name: "Notion",
+    icon: DatabaseIcon,
+    color: "bg-slate-800",
+    active: false,
+    desc: "Wiki import",
+  },
+];
 
-export function Integrations() {
-  const integrations = [
-    {
-      name: "Slack",
-      icon: HashIcon,
-      color: "bg-emerald-500",
-      active: true,
-      desc: "Channel alerts & replies",
-    },
-    {
-      name: "Salesforce",
-      icon: CloudIcon,
-      color: "bg-blue-500",
-      active: true,
-      desc: "CRM data sync",
-    },
-    {
-      name: "Google Drive",
-      icon: HardDriveIcon,
-      color: "bg-yellow-500",
-      active: true,
-      desc: "Knowledge base source",
-    },
-    {
-      name: "Zendesk",
-      icon: MessageSquareIcon,
-      color: "bg-green-600",
-      active: false,
-      desc: "Ticket management",
-    },
-    {
-      name: "Intercom",
-      icon: MessageSquareIcon,
-      color: "bg-indigo-500",
-      active: false,
-      desc: "Customer chat sync",
-    },
-    {
-      name: "Notion",
-      icon: DatabaseIcon,
-      color: "bg-slate-800",
-      active: false,
-      desc: "Wiki import",
-    },
-  ];
-
+export function Integrations({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
-    <div className="w-full h-full flex flex-col bg-background rounded-xl overflow-hidden border shadow-sm">
+    <div
+      className={cn(
+        "size-full flex flex-col bg-background rounded-xl overflow-hidden border shadow-sm",
+        className,
+      )}
+      {...props}
+    >
       <div className="p-4 border-b bg-muted/10">
         <h3 className="font-medium text-sm">Connected Apps</h3>
       </div>

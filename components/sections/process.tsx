@@ -29,12 +29,14 @@ function ProcessCard({
 }: ProcessCardProps) {
   const Icon = icon;
   return (
-    <div className={cn("space-y-4", className)} {...props}>
+    <div className={cn("space-y-2", className)} {...props}>
       <div className="flex items-center gap-2">
-        <Icon className="size-5" />
-        <h2 className="text-xl font-semibold">{title}</h2>
+        <Icon className="size-4" />
+        <h2 className="font-medium">{title}</h2>
       </div>
-      <p className="text-muted-foreground text-balance">{description}</p>
+      <p className="text-muted-foreground text-sm text-balance">
+        {description}
+      </p>
       {children}
     </div>
   );
@@ -44,29 +46,29 @@ function ProcessDesktop() {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["10% end", "center end"],
+    offset: ["start end", "end end"],
   });
 
   const screenX = useTransform(
     scrollYProgress,
     [0, 0.2, 0.7, 1],
-    ["20%", "40%", "0%", "40%"]
+    ["20%", "40%", "0%", "40%"],
   );
-  const screenScale = useTransform(scrollYProgress, [0, 0.3], [1.4, 1]);
+  const screenScale = useTransform(scrollYProgress, [0, 0.3], [1.25, 1]);
   const screenTransform = useMotionTemplate`scale(${screenScale}) translateX(${screenX})`;
   const text1Opacity = useTransform(scrollYProgress, [0, 0.4, 0.6], [0, 1, 0]);
   const text2Opacity = useTransform(scrollYProgress, [0.5, 0.9, 1], [0, 1, 0]);
   const text3Opacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
 
   return (
-    <section ref={containerRef} className="relative h-[300vh]">
-      <div className="sticky top-0 left-0 h-screen w-full">
+    <section ref={containerRef} className="relative h-[300vh] ">
+      <div className="sticky top-0 left-0 h-screen w-full max-w-6xl px-2 mx-auto ">
         <div className="overflow-hidden py-16 h-full">
           <motion.div
-            className="h-full mx-auto origin-top px-8 place-content-center"
+            className="h-full mx-auto origin-top-right place-content-center"
             style={{ transform: screenTransform }}
           >
-            <AiScreen className="w-3/5 max-h-full aspect-video min-h-full" />
+            <AiScreen className="w-3/5 max-h-full aspect-video min-h-full bg-card" />
           </motion.div>
         </div>
         <motion.div
@@ -140,9 +142,7 @@ function ProcessMobile() {
               Route tickets, suggest replies, and serve customers through chat,
               email, or internal tools.
             </p>
-            <Button>
-              Setup your workflows
-            </Button>
+            <Button>Setup your workflows</Button>
           </div>
         </div>
       </div>

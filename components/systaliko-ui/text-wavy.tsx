@@ -1,10 +1,10 @@
-'use client';
+"use client";
 import {
   motion,
   useReducedMotion,
   ValueKeyframesDefinition,
   Variants,
-} from 'motion/react';
+} from "motion/react";
 
 interface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {
   text: string;
@@ -17,14 +17,14 @@ interface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {
 
 export const TextWavy = ({
   text,
-  as: Component = 'span',
-  colors = ['var(--foreground)', 'var(--primary)', 'var(--foreground)'],
-  fontSizes = ['12px', '14px', '12px'],
+  as: Component = "span",
+  colors = ["var(--foreground)", "var(--primary)", "var(--foreground)"],
+  fontSizes = ["12px", "14px", "12px"],
   fontWeights = [400, 600, 400],
   delayTime = 5,
   ...props
 }: PropsTextWave) => {
-  const letters = text.split('');
+  const letters = text.split("");
   const reducedMotion = useReducedMotion();
   const perspective = {
     initial: {
@@ -39,9 +39,9 @@ export const TextWavy = ({
       transition: {
         delay: delayTime + i * 0.05,
         duration: 0.7,
-        ease: 'easeIn',
+        ease: "easeIn",
         repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely
-        repeatDelay: 5, // Delay of 5 seconds between repeats
+        repeatDelay: delayTime, // Delay of 5 seconds between repeats
       },
     }),
   } as Variants;

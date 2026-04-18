@@ -5,20 +5,17 @@ import { CheckIcon, PlusIcon, XIcon } from "lucide-react";
 import React from "react";
 import { Price } from "./price";
 
-const pricingCardVariants = cva(
-  "group relative border-2 p-6 flex flex-col space-y-6 bg-card transition-all duration-300 hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)]",
-  {
-    variants: {
-      variant: {
-        default: "border-border/50 hover:border-border/50 ",
-        featured: "border-primary/50 z-2 hover:border-primary",
-      },
+const pricingCardVariants = cva("group relative p-6 flex flex-col space-y-6", {
+  variants: {
+    variant: {
+      default: " ",
+      featured: " ",
     },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
-);
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
 type PricingInterval = "monthly" | "yearly";
 interface PricingDuration {
   monthly: number;
@@ -31,7 +28,7 @@ interface PricingContextValue {
   savings?: number;
 }
 const PricingContext = React.createContext<PricingContextValue | undefined>(
-  undefined
+  undefined,
 );
 function usePricingContext() {
   const context = React.useContext(PricingContext);
@@ -51,7 +48,7 @@ export function Pricing({ ...props }: React.HTMLAttributes<HTMLDivElement>) {
 
   const toggleInterval = () => {
     setInterval((prevState) =>
-      prevState === "monthly" ? "yearly" : "monthly"
+      prevState === "monthly" ? "yearly" : "monthly",
     );
   };
   return (
@@ -144,7 +141,7 @@ export function PricingIntervalSwitch({
       className={cn(
         "relative w-10 h-6 rounded-full p-1 transition-colors hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2",
         `${interval === "yearly" ? "bg-primary/80" : "bg-muted"}`,
-        className
+        className,
       )}
       {...props}
     >
@@ -183,7 +180,7 @@ export function PricingValue({
       animated={true}
       className={cn(
         "inline-flex gap-1 tracking-tighter items-center text-4xl",
-        className
+        className,
       )}
     >
       <span className="text-muted-foreground text-sm font-normal tracking-normal">

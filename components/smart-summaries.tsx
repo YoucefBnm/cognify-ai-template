@@ -1,13 +1,24 @@
+import { cn } from "@/lib/utils";
 import {
   CheckCircle2Icon,
   FileTextIcon,
   ListTodoIcon,
   SparklesIcon,
 } from "lucide-react";
+import React from "react";
 
-export function SmartSummaries() {
+export function SmartSummaries({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
-    <div className="size-full flex flex-col bg-background rounded-xl overflow-hidden border shadow-sm relative">
+    <div
+      className={cn(
+        "size-full flex flex-col bg-background rounded-xl overflow-hidden border shadow-sm relative",
+        className,
+      )}
+      {...props}
+    >
       <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 p-6 opacity-40 blur-[1px] pointer-events-none flex flex-col gap-4">
         <div className="flex gap-3">
           <div className="size-8 rounded-full bg-slate-200" />
