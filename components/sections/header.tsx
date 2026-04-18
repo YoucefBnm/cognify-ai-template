@@ -31,47 +31,8 @@ import { Variants } from "motion";
 import Link from "next/link";
 import React from "react";
 import GithubIcon from "../icons/github-icon";
-import { Separator } from "../ui/separator";
-const nav_links: { id: string; label: string; href: string }[] = [
-  {
-    id: "nav-link-2",
-    label: "Products",
-    href: "#Products",
-  },
-  {
-    id: "nav-link-1",
-    label: "Docs",
-    href: "#docs",
-  },
-  {
-    id: "nav-link-3",
-    label: "Solutions",
-    href: "#solutions",
-  },
-  {
-    id: "nav-link-4",
-    label: "Pricing",
-    href: "#pricing",
-  },
-];
-
-export const nav_socials: { id: string; label: string; href: string }[] = [
-  {
-    id: "nav-social-link-1",
-    label: "IG",
-    href: "https://instagram.com/cognify.ai",
-  },
-  {
-    id: "nav-nav-social-link-2",
-    label: "Linkedin",
-    href: "https://www.linkedin.com/company/cognify-ai/",
-  },
-  {
-    id: "nav-nav-social-link-3",
-    label: "X",
-    href: "https://www.x.com/cognify-ai/",
-  },
-];
+import { useIsScrolled } from "@/hooks/use-is-scrolled";
+import { nav_links, nav_socials } from "@/constants";
 
 const variants = {
   open: {
@@ -86,34 +47,9 @@ const variants = {
   },
 } as Variants;
 
-function useIsScrolled() {
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const sentinelRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // If the sentinel (top pixel) is NOT intersecting, we have scrolled down
-        setIsScrolled(!entry.isIntersecting);
-      },
-      { root: null, threshold: 1.0 },
-    );
-
-    if (sentinelRef.current) {
-      observer.observe(sentinelRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-  return {
-    isScrolled,
-    sentinelRef,
-  };
-}
-
 function HeaderLogo() {
   return (
-    <Link className="text-primary flex items-center justify-center" href="/">
+    <Link className="flex items-center justify-center" href="/">
       <Logo />
     </Link>
   );
@@ -240,15 +176,14 @@ function HeaderDesktop() {
           className={`
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
-            inset-[0_0_auto] py-3
-            ${isScrolled ? "w-10/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
+            inset-[0_0_auto] py-1.5 rounded-full
+            ${isScrolled ? "w-9/12 px-1.5 translate-y-4 bg-sidebar/60 border shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10 text-white"}
             `}
         >
           <HeaderLogo />
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-8">
             <DesktopHeaderNav />
-            <Separator orientation="vertical" />
             <HeaderCta />
           </div>
         </div>
@@ -266,20 +201,20 @@ function HeaderMobile() {
         className="absolute top-0 h-px w-full bg-transparent"
       />
       <header
-        className={`fixed w-full px-4 z-999 flex items-center gap-4 justify-between bg-background h-14 transition-transform duration-300 ${
-          isScrolled ? "-translate-y-full" : "translate-y-0"
+        className={`fixed w-full px-4 z-999 flex items-center gap-4 justify-between h-14 transition-transform duration-300 ${
+          isScrolled ? "-translate-y-full" : "text-white translate-y-0"
         }`}
       >
         <HeaderLogo />
 
         <AnimatedMenu className="relative">
-          <AnimatedMenuButton className="w-28 h-12 inline-flex justify-center items-center  ">
+          <AnimatedMenuButton className="w-28 h-12 mix-blend-difference inline-flex justify-center items-center  ">
             <AnimatedMenuButtonToggleIcon className="*:h-[1.5px] *:origin-[17.5%]" />
             <AnimatedMenuButtonLabel />
           </AnimatedMenuButton>
           <AnimatedMenuList
             variants={variants}
-            className="fixed top-0 right-0 origin-right z-800 bg-secondary/80 backdrop-blur-lg text-secondary-foreground/50"
+            className="fixed top-0 right-0 origin-right z-800 bg-secondary backdrop-blur-lg text-secondary-foreground/50"
           >
             <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
               <div className="flex-col space-y-6 items-start ">
