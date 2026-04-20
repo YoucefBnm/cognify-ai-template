@@ -62,7 +62,7 @@ function ProcessDesktop() {
 
   return (
     <section ref={containerRef} className="relative h-[300vh] ">
-      <div className="sticky top-0 left-0 h-screen w-full max-w-6xl px-2 mx-auto ">
+      <div className="sticky top-0 left-0 h-screen w-full max-w-6xl px-2 mx-auto">
         <div className="overflow-hidden py-16 h-full">
           <motion.div
             className="h-full mx-auto origin-top-right place-content-center"

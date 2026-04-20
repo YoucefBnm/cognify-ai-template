@@ -15,10 +15,10 @@ export function FAQ() {
         paragraph="Designed to help you streamline your support process, reduce ticket volume, and improve customer satisfaction."
       />
 
-      <Accordion className="md:max-w-3/5 mx-auto space-y-2">
+      <Accordion className="md:max-w-3/5 mx-auto ">
         {faqs.map(({ id, question, answer }) => (
           <AccordionItem
-            className="mx-auto w-full border border-border/50 rounded px-6 bg-popover"
+            className="mx-auto w-full border-b border-b-background/70 rounded px-6"
             key={id}
             value={id}
           >
