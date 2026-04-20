@@ -23,7 +23,7 @@ export function SectionTitle({
             "var(--primary)",
             "var(--muted-foreground)",
           ]}
-          fontWeights={[500, 700, 500]}
+          fontSizes={["14px", "16px", "14px"]}
           className="tracking-wide"
           text={title}
         />
