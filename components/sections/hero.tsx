@@ -3,7 +3,8 @@ import { TextWavy } from "@/components/systaliko-ui/text-wavy";
 import { Button } from "@/components/ui/button";
 import { animation_variants } from "@/lib/animation-variants";
 import { motion, MotionConfig, stagger } from "motion/react";
-import { GradientShader } from "../gradient-shader";
+import { DotOrbit } from "@paper-design/shaders-react";
+import React from "react";
 
 const variants = animation_variants["blur"];
 
@@ -32,13 +33,13 @@ function HeroText() {
       <MotionConfig transition={{ duration: 0.4, ease: "easeOut" }}>
         <motion.h1
           variants={variants}
-          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight text-balance bg-clip-text text-transparent bg-linear-to-b from-foreground to bg-foreground/70"
+          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight text-balance"
         >
           AI that Powers Better Customer Experiences
         </motion.h1>
         <motion.p
           variants={variants}
-          className="text-sm text-muted-foreground text-balance max-w-[75ch]"
+          className="text-sm text-muted-foreground text-balance max-w-[55ch]"
         >
           Cognify uses smart understanding and automation to answer customers
           faster, equip teams with context, and surface insights that grow
@@ -55,13 +56,24 @@ function HeroText() {
 }
 export function Hero() {
   return (
-    <section className="w-full h-screen overflow-hidden grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 items-center">
-      <GradientShader
-        animate
-        // colors={["#2D8B8B", "#3771BE", "#1E2019"]}
-        colors={["#e0e0e0", "#f5f5f5", "#3771BE"]}
-      />
-      <HeroText />
+    <section className="px-4 pt-4">
+      <div className="grid grid-cols-1 grid-rows-1 h-screen place-content-center *:col-start-1 *:row-start-1 relative ">
+        <div className="size-full  bg-secondary ring-2 ring-ring/10 shadow-2xs rounded-3xl overflow-hidden">
+          <DotOrbit
+            width={1280}
+            height={720}
+            colors={["#A3A3A3"]}
+            colorBack="#e0e0e0"
+            stepsPerColor={1}
+            size={0.24}
+            sizeRange={0}
+            spreading={0.3}
+            speed={6}
+            scale={0.2}
+          />
+        </div>
+        <HeroText />
+      </div>
     </section>
   );
 }
