@@ -171,13 +171,13 @@ function HeaderDesktop() {
         ref={sentinelRef}
         className="absolute top-0 h-px w-full bg-transparent"
       />
-      <header className="fixed z-999 top-0 left-0 w-full flex justify-center">
+      <header className="fixed z-999 top-4 left-0 w-full flex justify-center">
         <div
           className={`
-            flex justify-between backdrop-blur-lg
+            flex justify-between 
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
-            inset-[0_0_auto] py-1.5 rounded-full
-            ${isScrolled ? "w-9/12 px-1.5 translate-y-4 bg-sidebar/60 border shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10 text-white"}
+            inset-[0_0_auto] p-1 rounded-full
+            ${isScrolled ? "w-9/12 backdrop-blur-lg bg-sidebar/60 border shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-8"}
             `}
         >
           <HeaderLogo />
@@ -198,56 +198,36 @@ function HeaderMobile() {
     <>
       <div
         ref={sentinelRef}
-        className="absolute top-0 h-px w-full bg-transparent"
+        className="absolute top-2 h-px w-full bg-transparent"
       />
       <header
-        className={`fixed w-full px-4 z-999 flex items-center gap-4 justify-between h-14 transition-transform duration-300 ${
-          isScrolled ? "-translate-y-full" : "text-white translate-y-0"
+        className={`fixed w-full px-4 z-999 flex items-center gap-4 justify-between h-14 transition-all duration-300 ${
+          isScrolled
+            ? "bg-sidebar/60 backdrop-blur-lg shadow-[0_0_0_1px_rgba(0,0,0,0.05)] translate-y-0"
+            : "bg-transparent"
         }`}
       >
         <HeaderLogo />
 
-        <AnimatedMenu className="relative">
-          <AnimatedMenuButton className="w-28 h-12 mix-blend-difference inline-flex justify-center items-center  ">
-            <AnimatedMenuButtonToggleIcon className="*:h-[1.5px] *:origin-[17.5%]" />
+        <AnimatedMenu>
+          <AnimatedMenuButton>
+            <AnimatedMenuButtonToggleIcon />
             <AnimatedMenuButtonLabel />
           </AnimatedMenuButton>
-          <AnimatedMenuList
-            variants={variants}
-            className="fixed top-0 right-0 origin-right z-800 bg-secondary backdrop-blur-lg text-secondary-foreground/50"
-          >
-            <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
-              <div className="flex-col space-y-6 items-start ">
-                {nav_links.map(({ id, label, href }, i) => (
-                  <AnimatedMenuItem key={id} order={i}>
-                    <Link
-                      className="text-2xl font-medium transition-colors duration-200 hover:text-secondary-foreground tracking-tight"
-                      href={href}
-                      title={label}
-                      aria-label={`navigate to ${label}`}
-                    >
-                      {label}
-                    </Link>
-                  </AnimatedMenuItem>
-                ))}
-              </div>
-              <div className="flex gap-4 ">
-                {nav_socials.map(({ id, label, href }, i) => (
-                  <AnimatedMenuItem key={id} order={i + nav_links.length}>
-                    <Link
-                      className=" font-medium text-sm tracking-wide uppercase transition-colors duration-200 hover:text-secondary-foreground"
-                      href={href}
-                      title={label}
-                      aria-label={`navigate to ${label}`}
-                    >
-                      {label}
-                    </Link>
-                  </AnimatedMenuItem>
-                ))}
-              </div>
-              <AnimatedMenuItem order={nav_links.length + nav_socials.length}>
-                <Button className="z-999 relative">Get Started</Button>
-              </AnimatedMenuItem>
+
+          <AnimatedMenuList className="ring shadow-2xs ring-ring/10 place-content-center">
+            <div className="space-y-0.5 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+              {nav_links.map((item, i) => (
+                <AnimatedMenuItem key={i} order={i}>
+                  <Link
+                    className="block border-b px-2.5 py-2 text-sm font-medium"
+                    href={item.href}
+                    title={item.label}
+                  >
+                    {item.label}
+                  </Link>
+                </AnimatedMenuItem>
+              ))}
             </div>
           </AnimatedMenuList>
         </AnimatedMenu>

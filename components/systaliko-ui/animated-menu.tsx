@@ -1,14 +1,14 @@
-'use client';
-import { cn } from '@/lib/utils';
-import { cva, VariantProps } from 'class-variance-authority';
+"use client";
+import { cn } from "@/lib/utils";
+import { cva, VariantProps } from "class-variance-authority";
 import {
   AnimatePresence,
   HTMLMotionProps,
   motion,
   MotionConfig,
   Variants,
-} from 'motion/react';
-import React from 'react';
+} from "motion/react";
+import React from "react";
 
 const menuListVariants = {
   open: {
@@ -17,8 +17,8 @@ const menuListVariants = {
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
-    width: 112,
-    height: 48,
+    width: 80,
+    height: 32,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;
@@ -45,15 +45,14 @@ interface AnimatedMenuContextValue {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-interface AnimatedMenuListProps extends HTMLMotionProps<'div'> {
+interface AnimatedMenuListProps extends HTMLMotionProps<"div"> {
   menuListVariants?: Variants;
 }
-interface AnimatedMenuItemProps extends HTMLMotionProps<'div'> {
+interface AnimatedMenuItemProps extends HTMLMotionProps<"div"> {
   order?: number;
   variants?: Variants;
 }
-interface AnimatedMenuButtonLabelProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface AnimatedMenuButtonLabelProps extends React.HTMLAttributes<HTMLDivElement> {
   closeLabel?: string;
   openLabel?: string;
 }
@@ -64,41 +63,42 @@ function useAnimatedMenuContext() {
   const context = React.useContext(AnimatedMenuContext);
   if (context === undefined) {
     throw new Error(
-      'useAnimatedMenuContext must be used within an AnimatedMenuProvider',
+      "useAnimatedMenuContext must be used within an AnimatedMenuProvider",
     );
   }
   return context;
 }
 export function AnimatedMenu({
+  className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.ComponentProps<"div">) {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (
     <AnimatedMenuContext.Provider value={{ isOpen, setIsOpen }}>
-      <div {...props} />
+      <div className={cn("relative", className)} {...props} />
     </AnimatedMenuContext.Provider>
   );
 }
 const buttonIconVariants = cva(
-  'flex flex-col gap-1.5 justify-center items-center p-1 relative *:bg-current',
+  "flex flex-col gap-1.5 justify-center items-center p-1 relative *:bg-current",
   {
     variants: {
       size: {
-        sm: '*:w-4 *:h-px *:w-4 *:h-px *:origin-[20%]',
-        md: '*:w-6 *:h-0.5  *:origin-[25%]',
-        lg: '*:w-8 *:h-0.5  *:origin-[33%]',
-        xl: '*:w-10 *:h-1 *:origin-[31%]',
+        sm: "*:w-4 *:h-[1.5px] *:origin-[17%]",
+        md: "*:w-6 *:h-0.5  *:origin-[25%]",
+        lg: "*:w-8 *:h-0.5  *:origin-[33%]",
+        xl: "*:w-10 *:h-1 *:origin-[31%]",
       },
     },
     defaultVariants: {
-      size: 'sm',
+      size: "sm",
     },
   },
 );
 export function AnimatedMenuButtonToggleIcon({
   className,
-  size = 'sm',
+  size = "sm",
   ...props
 }: React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof buttonIconVariants>) {
@@ -119,8 +119,8 @@ export function AnimatedMenuButtonToggleIcon({
   );
 }
 export function AnimatedMenuButtonLabel({
-  closeLabel = 'Menu',
-  openLabel = 'Close',
+  closeLabel = "Menu",
+  openLabel = "Close",
   className,
   ...props
 }: AnimatedMenuButtonLabelProps) {
@@ -128,7 +128,7 @@ export function AnimatedMenuButtonLabel({
   return (
     <div
       className={cn(
-        'overflow-hidden shrink-0 inline-grid grid-rows-1 grid-cols-1',
+        "text-sm font-medium overflow-hidden shrink-0 inline-grid grid-rows-1 grid-cols-1",
         className,
       )}
       {...props}
@@ -137,18 +137,18 @@ export function AnimatedMenuButtonLabel({
         <motion.span
           key={closeLabel}
           className="will-change-transform col-start-1 row-start-1"
-          initial={{ y: '0%' }}
-          animate={isOpen ? { y: '-100%' } : { y: '0%' }}
-          exit={{ y: '-100%' }}
+          initial={{ y: "0%" }}
+          animate={isOpen ? { y: "-100%" } : { y: "0%" }}
+          exit={{ y: "-100%" }}
         >
           {closeLabel}
         </motion.span>
         <motion.span
           key={openLabel}
           className="will-change-transform col-start-1 row-start-1"
-          initial={{ y: '100%' }}
-          animate={isOpen ? { y: '0%' } : { y: '100%' }}
-          exit={{ y: '100%' }}
+          initial={{ y: "100%" }}
+          animate={isOpen ? { y: "0%" } : { y: "100%" }}
+          exit={{ y: "100%" }}
         >
           {openLabel}
         </motion.span>
@@ -167,8 +167,9 @@ export function AnimatedMenuButton({
   return (
     <button
       className={cn(
-        'appearance-none relative z-[999] bg-none inline-flex gap-0.5 justify-center items-center',
-        '[&:hover>*]:scale-90 *:transition-transform *:duration-300',
+        "w-20 h-8",
+        "cursor-pointer text-popover-foreground appearance-none relative z-[999] bg-none flex gap-0.5 justify-center items-center",
+        "[&:hover>*]:scale-90 *:transition-transform *:duration-300",
         className,
       )}
       onClick={toggleMenu}
@@ -192,10 +193,13 @@ export function AnimatedMenuList({
   const { isOpen } = useAnimatedMenuContext();
   return (
     <motion.div
-      className={cn('z-[800] ', className)}
+      className={cn(
+        "absolute right-0 top-0 overflow-hidden bg-popover text-popover-foreground rounded-md z-[800] ",
+        className,
+      )}
       variants={variants}
       initial="close"
-      animate={isOpen ? 'open' : 'close'}
+      animate={isOpen ? "open" : "close"}
       {...props}
     >
       <AnimatePresence>
@@ -231,7 +235,7 @@ export function CloseAnimatedMenu({
   return (
     <button
       className={cn(
-        'appearance-none bg-none outline-none border-none',
+        "appearance-none bg-none outline-none border-none",
         className,
       )}
       onClick={closeMenu}
