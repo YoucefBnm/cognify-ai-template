@@ -10,7 +10,7 @@ export const Logo = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Cognify AI Logo"
-      className={cn("w-8", className)}
+      className={cn("w-7", className)}
       {...props}
     >
       <path

@@ -1,18 +1,25 @@
-import { AiScreen } from "@/components/ai-screen";
-import { Integrations } from "@/components/integrations";
-import { SmartSummaries } from "@/components/smart-summaries";
-import { TicketTirage } from "@/components/ticket-tirage";
 import {
   BotMessageSquareIcon,
   BrainCircuitIcon,
   ChartNetworkIcon,
+  CloudIcon,
+  DatabaseIcon,
+  HardDriveIcon,
+  HashIcon,
   LightbulbIcon,
   Link2Icon,
   ListFilterIcon,
+  LucideIcon,
+  MessageSquareIcon,
   SparklesIcon,
   ZapIcon,
 } from "lucide-react";
 
+export const SHADER_COLORS = ["#E0E9F6", "#f5f5f5", "#A0BDE3"] as [
+  string,
+  string,
+  string,
+];
 export const nav_links: { id: string; label: string; href: string }[] = [
   {
     id: "nav-link-2",
@@ -160,53 +167,6 @@ export const achievements = [
   },
 ];
 
-export const features = [
-  {
-    id: 0,
-    title: "Instant Answers from Your Docs",
-    description:
-      "Connect existing knowledge (docs, help centers, product specs) and let Cognify return accurate, context-aware answers to customers and agents.",
-    benefit: "Reduce average response time and lighten agent load.",
-    icon: ZapIcon,
-    component: AiScreen,
-    color: "text-primary",
-    bg: "bg-primary/10",
-  },
-  {
-    id: 1,
-    title: "AI-Powered Ticket Triage",
-    description:
-      "Automatically categorize, prioritize, and route tickets so your team works on what matters most.",
-    benefit: "Faster SLAs and lower operational cost.",
-    icon: ListFilterIcon,
-    component: TicketTirage,
-    color: "text-orange-500",
-    bg: "bg-orange-500/10",
-  },
-  {
-    id: 2,
-    title: "Smart Summaries & Insights",
-    description:
-      "Turn long conversations and documents into clear summaries and action items.",
-    benefit: "Faster decision making and better handoffs.",
-    icon: SparklesIcon,
-    component: SmartSummaries,
-    color: "text-indigo-500",
-    bg: "bg-indigo-500/10",
-  },
-  {
-    id: 3,
-    title: "Seamless Integrations",
-    description:
-      "Out-of-the-box connectors for Zendesk, Intercom, Salesforce, Slack, Google Drive, and more.",
-    benefit: "Keep workflows — just add AI.",
-    icon: Link2Icon,
-    component: Integrations,
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/10",
-  },
-];
-
 export const about_text =
   "Cognify builds AI tools that make knowledge work faster, safer, and more helpful. We believe teams should spend time on impact, not on searching for answers. Our mission: turn scattered documentation and conversations into usable, trusted intelligence.";
 
@@ -245,5 +205,56 @@ export const faqs = [
     id: "faq-6",
     question: "How do I contact you?",
     answer: "Reach out to us at support@cognify.com.",
+  },
+];
+
+export const INTEGRATIONS_DATA: {
+  name: string;
+  icon: LucideIcon;
+  color: string;
+  active: boolean;
+  desc: string;
+}[] = [
+  {
+    name: "Slack",
+    icon: HashIcon,
+    color: "bg-emerald-500",
+    active: true,
+    desc: "Channel alerts & replies",
+  },
+  {
+    name: "Salesforce",
+    icon: CloudIcon,
+    color: "bg-blue-500",
+    active: true,
+    desc: "CRM data sync",
+  },
+  {
+    name: "Google Drive",
+    icon: HardDriveIcon,
+    color: "bg-yellow-500",
+    active: true,
+    desc: "Knowledge base source",
+  },
+  {
+    name: "Zendesk",
+    icon: MessageSquareIcon,
+    color: "bg-green-600",
+    active: false,
+    desc: "Ticket management",
+  },
+  {
+    name: "Intercom",
+    icon: MessageSquareIcon,
+    color: "bg-indigo-500",
+    active: false,
+    desc: "Customer chat sync",
+  },
+  {
+    name: "Notion",
+    icon: DatabaseIcon,
+    color: "bg-slate-800",
+    active: false,
+    desc: "Wiki import",
   },
 ];

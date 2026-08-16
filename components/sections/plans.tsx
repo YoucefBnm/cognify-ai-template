@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "../ui/separator";
 import { pricing_plans } from "@/constants";
 import clsx from "clsx";
+import { AnimatedBorder } from "../animated-border";
 
 const price = pricing_plans[1].price;
 const savings = typeof price !== "string" ? calculateYearlySavings(price) : 0;
@@ -40,30 +41,34 @@ export function Plans() {
           </Badge>
         </div>
 
-        <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-start">
+        <div className="max-w-6xl mx-auto flex flex-wrap gap-4 justify-center items-start">
           {pricing_plans.map((plan) => {
             return (
               <PricingCard
                 key={plan.id}
                 className={clsx(
-                  "relative md:flex-1 flex flex-col py-12 px-8 bg-transparent ",
+                  "relative md:flex-1 flex flex-col py-12 px-8 rounded-xl ring   ",
                   plan.featured
-                    ? "bg-accent text-accent-foreground ring ring-ring/20"
-                    : "border bg-card text-card-foreground",
+                    ? "bg-accent text-accent-foreground ring-primary/20"
+                    : "bg-card text-card-foreground ring-ring/10",
                 )}
               >
+                {plan.featured && (
+                  <AnimatedBorder className="absolute size-full inset-0  border border-foreground/10" />
+                )}
                 <PricingPackage className="flex-col gap-4 items-start">
                   <div className="flex items-center gap-2">
                     <h3 className="text-xl font-semibold">{plan.name}</h3>
                     {plan.featured && (
-                      <Badge className="bg-linear-to-b from-secondary/20 from-5% to-primary to-100% h-6 rounded-full  shadow-[0px_6px_6px_-3px_rgba(0,0,0,0.08),0px_3px_3px_-1.5px_rgba(0,0,0,0.08),0px_1px_1px_-0.5px_rgba(0,0,0,0.08),0px_0px_0px_1px_rgba(255,255,255,0.12)_inset,0px_1px_0px_0px_rgba(255,255,255,0.12)_inset] text-[10px]">
+                      <Badge
+                        variant={"outline"}
+                        className=" h-4.5 rounded-full shadow-xs text-primary shadow-black/15 ring-1 bg-primary/10 ring-primary/20 text-[10px]"
+                      >
                         Popular
                       </Badge>
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    {plan.description}
-                  </p>
+                  <p className="text-sm ">{plan.description}</p>
                   {typeof plan.price !== "string" ? (
                     <PricingValue
                       yearlyValue={plan.price.yearly}

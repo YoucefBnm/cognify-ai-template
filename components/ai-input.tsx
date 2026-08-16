@@ -20,20 +20,14 @@ export function AiInput() {
 export function AiChat() {
   return (
     <div
-      className="mx-auto p-2 overflow-hidden w-full max-w-lg rounded-[1.5rem]  bg-foreground/80 text-background backdrop-blur "
+      className="mx-auto p-2 overflow-hidden w-full max-w-xl rounded-[1.5rem]  bg-input/80 backdrop-blur border "
       style={{
         boxShadow:
           "0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.15), 0 0 0.6875rem 0 rgba(255, 255, 255, 0.16) inset",
       }}
     >
-      <div
-        className="rounded-[1rem] p-4 relative rounded size-full  overflow-hidden"
-        style={{
-          WebkitMaskImage: "-webkit-radial-gradient(white, white)",
-          maskImage: "radial-gradient(white, white)",
-        }}
-      >
-        <AnimatedBorder className="absolute inset-0 opacity-30 border-border/30" />
+      <div className="rounded-[1rem] p-4 relative rounded size-full  overflow-hidden">
+        <AnimatedBorder className="absolute inset-0  border border-foreground/10" />
 
         <AiInput />
 

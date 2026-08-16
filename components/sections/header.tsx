@@ -171,13 +171,13 @@ function HeaderDesktop() {
         ref={sentinelRef}
         className="absolute top-0 h-px w-full bg-transparent"
       />
-      <header className="fixed z-999 top-0 left-0 w-full flex justify-center">
+      <header className="fixed z-999 top-4 left-0 w-full flex justify-center">
         <div
           className={`
-            flex justify-between backdrop-blur-lg
+            flex justify-between 
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
-            inset-[0_0_auto] py-1.5 rounded-full
-            ${isScrolled ? "w-9/12 px-1.5 translate-y-4 bg-sidebar/60 border shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10 text-white"}
+            inset-[0_0_auto] p-1 rounded-full
+            ${isScrolled ? "w-9/12 backdrop-blur-lg bg-sidebar/60 border shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-8"}
             `}
         >
           <HeaderLogo />
@@ -198,16 +198,18 @@ function HeaderMobile() {
     <>
       <div
         ref={sentinelRef}
-        className="absolute top-0 h-px w-full bg-transparent"
+        className="absolute top-2 h-px w-full bg-transparent"
       />
       <header
-        className={`fixed w-full px-4 z-999 flex items-center gap-4 justify-between h-14 transition-transform duration-300 ${
-          isScrolled ? "-translate-y-full" : "text-white translate-y-0"
+        className={`fixed   w-full px-4 z-999 flex items-center gap-4 justify-between h-14 transition-all duration-300 ${
+          isScrolled
+            ? "bg-sidebar/60 backdrop-blur-lg shadow-[0_0_0_1px_rgba(0,0,0,0.05)] translate-y-0"
+            : "translate-y-4 bg-transparent"
         }`}
       >
         <HeaderLogo />
 
-        <AnimatedMenu className="relative">
+        <AnimatedMenu className="relative z-999">
           <AnimatedMenuButton className="w-28 h-12 mix-blend-difference inline-flex justify-center items-center  ">
             <AnimatedMenuButtonToggleIcon className="*:h-[1.5px] *:origin-[17.5%]" />
             <AnimatedMenuButtonLabel />

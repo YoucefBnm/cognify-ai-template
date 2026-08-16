@@ -19,14 +19,14 @@ function HeroText() {
       <MotionConfig transition={{ duration: 0.4, ease: "easeOut" }}>
         <motion.h1
           variants={variants}
-          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight max-w-[18ch] text-balance"
+          className="text-4xl lg:text-5xl xl:text-6xl tracking-tight text-balance bg-clip-text text-transparent bg-linear-to-b from-foreground/60 to bg-foreground/80"
         >
           AI that Powers Better Customer Experiences
         </motion.h1>
         <AiChat />
         <motion.p
           variants={variants}
-          className="text-xs text-muted-foreground text-balance max-w-[55ch]"
+          className="text-xs text-muted-foreground text-balance max-w-[75ch]"
         >
           Cognify uses smart understanding and automation to answer customers
           faster, equip teams with context, and surface insights that grow
@@ -47,8 +47,8 @@ export function Hero() {
     <section className="">
       <div className="grid grid-cols-1 grid-rows-1 h-screen place-content-center *:col-start-1 *:row-start-1 relative ">
         <ShaderGradient
-          colors={["#ebebeb", "#9ab0e5", "#d7ceceff"]}
-          // animate={false}
+          colors={["#ebebeb", "#9ab0e5", "#e2e6f1ff"]}
+          animate={false}
           intensity={5}
           density={4}
           className="size-full inset-0"

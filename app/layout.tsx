@@ -16,7 +16,7 @@ const fontSerif = Source_Serif_4({
 });
 export const metadata: Metadata = {
   title:
-    "Cognify — AI Customer Experience Platform | Knowledge Automation for Support Teams",
+    "Systaliko UI AI Template",
   description:
     "Cognify delivers AI-powered knowledge automation for support and sales teams. Reduce response time, automate ticket triage, and unlock insights from your docs — secure and enterprise-ready.",
   keywords: [

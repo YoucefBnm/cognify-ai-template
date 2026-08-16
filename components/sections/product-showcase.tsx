@@ -2,7 +2,6 @@
 import { motion, MotionConfig, stagger } from "motion/react";
 import { ANIMATION_VARIANTS } from "../systaliko-ui/animation-variants";
 import { TextWavy } from "../systaliko-ui/text-wavy";
-import { Logo } from "../logo";
 import { Button } from "../ui/button";
 import {
   BrowserMockup,
@@ -12,6 +11,7 @@ import {
   BrowserMockupHeader,
 } from "../browser-mockup";
 import { AiConversationDemo } from "../ai-conversation-demo";
+import { ArrowRightIcon } from "lucide-react";
 
 const variants = ANIMATION_VARIANTS["blur"];
 
@@ -24,15 +24,12 @@ function ShowcaseText() {
       transition={{ delayChildren: stagger(0.2) }}
       viewport={{ once: true, amount: 0.5 }}
     >
-      <motion.div className="flex gap-2 items-center" variants={variants}>
-        <div className="flex justify-center items-center rounded p-1.5 aspect-square ring ring-ring/20 bg-gradient-to-br from-accent to-chart-2 text-accent-foreground">
-          <Logo className="w-4" />
-        </div>
+      <motion.div variants={variants}>
         <TextWavy
           className="text-sm font-medium tracking-wide"
           text="Reduces repetitive ticket volume"
           colors={[
-            "var(--muted-foreground)",
+            "var(--accent)",
             "var(--primary)",
             "var(--muted-foreground)",
           ]}
@@ -58,7 +55,9 @@ function ShowcaseText() {
         </motion.p>
 
         <motion.div variants={variants} className="flex gap-4 flex-wrap">
-          <Button>Join Waitlist</Button>
+          <Button variant={"link"}>
+            Join Waitlist <ArrowRightIcon />
+          </Button>
         </motion.div>
       </MotionConfig>
     </motion.div>
