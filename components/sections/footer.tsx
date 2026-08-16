@@ -4,13 +4,14 @@ import { AppleStoreIcon } from "../icons/apple-store-icon";
 import { GooglePlayIcon } from "../icons/google-play-icon";
 import { FAQ } from "./faq";
 
+const badge_className =
+  "flex items-center rounded-xl border-2 border-border/20 bg-gradient-to-br from-slate-950/95 via-slate-950/90 to-slate-950/95 px-3 py-1 shadow-[0_26.941px_53.881px_-12.931px_rgba(0,184,219,0.10)]";
+
 export function Footer() {
   return (
     <footer>
-      <div className="relative min-h-screen bg-secondary text-secondary-foreground z-2">
-        <FAQ />
-      </div>
-      <div className="sticky z-0 bottom-0 left-0 w-full h-fit grid grid-cols-1 md:grid-cols-2 justify-evenly items-center gap-8 p-12 ">
+      <FAQ />
+      <div className="sticky z-0 bottom-0 left-0 w-full h-fit grid grid-cols-1 md:grid-cols-2 justify-evenly items-center gap-8 p-12 bg-secondary text-secondary-foreground">
         <FooterLogo />
 
         <FooterSocials />
@@ -26,9 +27,9 @@ export function Footer() {
 function FooterLogo() {
   return (
     <div className="space-y-4">
-      <div className="inline-flex gap-2 items-center">
+      <div className="inline-flex gap-1 items-center">
         <Logo className="size-6.5" />
-        <span className="text-xl font-medium">Cognify</span>
+        <span className="text-xl leading-none font-medium">cognify</span>
       </div>
       <p className="text-muted-foreground text-sm text-balance">{about_text}</p>
     </div>
@@ -38,13 +39,13 @@ function FooterLogo() {
 function FooterBadges() {
   return (
     <div className="space-y-4">
-      <h2 className="font-semibold">Download app</h2>
+      <h2 className="font-medium">Download app</h2>
       <div className="flex gap-2">
         <a
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center rounded-lg border-2 border-border/20 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 px-2.5 py-1.5 shadow-[0_26.941px_53.881px_-12.931px_rgba(0,184,219,0.10)]"
+          className={badge_className}
         >
           <AppleStoreIcon className="w-30" />
         </a>
@@ -52,7 +53,7 @@ function FooterBadges() {
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center rounded-lg border-2 border-border/20 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95 px-2.5 py-1.5 shadow-[0_26.941px_53.881px_-12.931px_rgba(0,184,219,0.10)]"
+          className={badge_className}
         >
           <GooglePlayIcon className="w-30" />
         </a>
@@ -64,7 +65,7 @@ function FooterBadges() {
 function FooterSitemap() {
   return (
     <div className="space-y-4">
-      <h2 className="font-semibold">Sitemap</h2>
+      <h2 className="font-medium">Sitemap</h2>
       <ul className="space-y-2 list-style-none *:text-secondary-foreground/70 *:hover:text-secondary-foreground">
         <li>
           <a href="#">Products</a>

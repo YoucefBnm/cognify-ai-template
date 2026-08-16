@@ -42,7 +42,7 @@ function WhyUsText() {
 
 function WhyUsMedia() {
   return (
-    <div className="relative flex bg-foreground  max-w-5xl mx-auto flex-wrap gap-8 items-center justify-between relative rounded-3xl mx-4 py-12 px-8 w-full min-h-fit overflow-hidden">
+    <div className="relative flex bg-foreground  max-w-6xl mx-auto flex-wrap gap-8 items-center justify-evenly relative rounded-3xl mx-4 py-16 px-8 w-full min-h-fit overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_92%,rgba(63,94,194,.42),transparent_38%),radial-gradient(circle_at_48%_106%,rgba(255,212,0,.16),transparent_34%),radial-gradient(circle_at_94%_12%,rgba(223,34,37,.14),transparent_34%)]"></div>
       <AnimatedBorder className="absolute inset-px  border-border/50 rounded rounded-[23px]" />
 

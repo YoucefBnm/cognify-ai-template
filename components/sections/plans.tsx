@@ -10,7 +10,6 @@ import {
 } from "@/components/systaliko-ui/pricing";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Separator } from "../ui/separator";
 import { pricing_plans } from "@/constants";
 import clsx from "clsx";
 import { AnimatedBorder } from "../animated-border";
@@ -47,7 +46,7 @@ export function Plans() {
               <PricingCard
                 key={plan.id}
                 className={clsx(
-                  "relative md:flex-1 flex flex-col py-12 px-8 rounded-xl ring   ",
+                  "relative md:flex-1 flex flex-col space-y-12 py-12 px-8 rounded-xl ring",
                   plan.featured
                     ? "bg-accent text-accent-foreground ring-primary/20"
                     : "bg-card text-card-foreground ring-ring/10",
@@ -79,11 +78,10 @@ export function Plans() {
                     <div className="font-semibold">Custom</div>
                   )}
                 </PricingPackage>
-                <Separator />
-                <ul className="flex flex-col space-y-3 mb-8">
+                <ul className="space-y-4">
                   {plan.features.map((feature) => (
                     <PricingFeature
-                      className="text-muted-foreground text-sm"
+                      className="flex items-center gap-2 text-muted-foreground text-sm"
                       key={feature}
                     >
                       {feature}

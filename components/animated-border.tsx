@@ -9,7 +9,7 @@ export function AnimatedBorder({
   return (
     <div
       className={cn(
-        "z-0 overflow-hidden rounded-[inherit] border border-border/5 bg-transparent p-[1.5px]",
+        "z-0 pointer-events-none touch-none overflow-hidden rounded-[inherit] border border-border/5 bg-transparent p-[1.5px]",
         className,
       )}
       style={{
