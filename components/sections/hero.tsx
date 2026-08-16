@@ -48,7 +48,6 @@ export function Hero() {
       <div className="grid grid-cols-1 grid-rows-1 h-screen place-content-center *:col-start-1 *:row-start-1 relative ">
         <ShaderGradient
           colors={["#ebebeb", "#9ab0e5", "#e2e6f1ff"]}
-          animate={false}
           intensity={5}
           density={4}
           className="size-full inset-0"
