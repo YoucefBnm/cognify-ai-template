@@ -21,9 +21,6 @@ importers:
       '@hugeicons/react':
         specifier: ^1.1.4
         version: 1.1.4(react@19.2.1)
-      '@paper-design/shaders-react':
-        specifier: ^0.0.79
-        version: 0.0.79(@types/react@19.2.7)(react@19.2.1)
       '@radix-ui/react-accordion':
         specifier: ^1.2.12
         version: 1.2.12(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -678,18 +675,6 @@ packages:
 
   '@open-draft/until@2.1.0':
     resolution: {integrity: sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==}
-
-  '@paper-design/shaders-react@0.0.79':
-    resolution: {integrity: sha512-2ZWA6mdsxlXanpdNwPHGzXqNpxxB9qcLDeBo78j8cihmesJbU1DRFJLsqV25q7qBUzT9yErloB+xelKa+UbUyg==}
-    peerDependencies:
-      '@types/react': 19.2.7
-      react: ^18 || ^19
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
-  '@paper-design/shaders@0.0.79':
-    resolution: {integrity: sha512-wUom4Dec4DBSXlOkxup8YIIHFYLZI/ZL4wmmD/plkkoetr+xYbZJ2SI6OmaRZelB1UnUj/cZBLAg79Q4CCjf8g==}
 
   '@radix-ui/primitive@1.1.3':
     resolution: {integrity: sha512-JTF99U/6XIjCBo0wqkU5sK10glYe27MRRsfwoiq5zzOEZLHU3A3KCMa5X/azekYRCJ0HlwI0crAXS/5dEHTzDg==}
@@ -3910,15 +3895,6 @@ snapshots:
       outvariant: 1.4.3
 
   '@open-draft/until@2.1.0': {}
-
-  '@paper-design/shaders-react@0.0.79(@types/react@19.2.7)(react@19.2.1)':
-    dependencies:
-      '@paper-design/shaders': 0.0.79
-      react: 19.2.1
-    optionalDependencies:
-      '@types/react': 19.2.7
-
-  '@paper-design/shaders@0.0.79': {}
 
   '@radix-ui/primitive@1.1.3': {}
 

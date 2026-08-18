@@ -50,6 +50,7 @@ export function Hero() {
           colors={["#ebebeb", "#9ab0e5", "#e2e6f1ff"]}
           intensity={5}
           density={4}
+          // animate={false}
           className="size-full inset-0"
         />
         <HeroText />
